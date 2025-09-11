@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrito — Pastelería Mil Sabores</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-light border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index2.html">Mil Sabores</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon">☰</span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="index2.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="registro.html">Registro</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link active" href="carrito.html">Carrito</a></li>
+        </ul>
+        <div class="d-flex"><a class="fw-semibold text-decoration-none" href="carrito.html">🛒 <span id="cart-count">0</span></a></div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="py-5">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div>
+        <span class="tag">Tu pedido</span>
+        <h1 class="display-6 fw-bold hero-title mt-2">Carrito de compras</h1>
+        <p class="lead">Revisa, elimina y confirma tus productos.</p>
+      </div>
+      <img src="img/pie.svg" alt="Carrito" style="height:80px">
+    </div>
+  </header>
+
+  <main class="container pb-5">
+    <div class="card p-0">
+      <div class="table-responsive">
+        <table class="table align-middle mb-0">
+          <thead>
+            <tr><th>Producto</th><th class="text-end">Precio</th><th class="text-center">Cant.</th><th class="text-end">Subtotal</th><th></th></tr>
+          </thead>
+          <tbody id="carrito-body">
+            <!-- renderCarrito() -->
+          </tbody>
+        </table>
+      </div>
+      <div class="d-flex justify-content-between align-items-center p-3 border-top">
+        <button id="btn-vaciar" class="btn btn-outline-danger" onclick="vaciarCarrito()">Vaciar carrito</button>
+        <div class="fs-5">Total: <strong id="carrito-total">$0</strong></div>
+      </div>
+    </div>
+    <div class="text-end mt-3">
+      <a href="contacto.html" class="btn btn-primary">Continuar con el pedido</a>
+    </div>
+  </main>
+
+  <footer class="py-4 mt-5">
+    <div class="container text-center small text-muted">© 2025 Pastelería Mil Sabores · Maipú, Santiago</div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', renderCarrito);</script>
+</body>
+</html>

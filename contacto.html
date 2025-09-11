@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto — Pastelería Mil Sabores</title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-light border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index2.html">Mil Sabores</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon">☰</span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="index2.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="registro.html">Registro</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blogs</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="py-5">
+    <div class="container">
+      <span class="tag">Contáctanos</span>
+      <h1 class="display-6 fw-bold hero-title mt-2">Hablemos de tu pedido</h1>
+      <p class="lead">Cuéntanos fecha, porciones y el estilo que te gusta. Te respondemos rápido.</p>
+    </div>
+  </header>
+
+  <main class="container pb-5">
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="card p-4">
+          <form id="frmContacto" onsubmit="return validarContacto(this)">
+            <div class="mb-3">
+              <label class="form-label" for="nombre">Nombre <span class="text-danger">*</span></label>
+              <input class="form-control" id="nombre" name="nombre" maxlength="100" required>
+              <div id="err-nombre" class="form-text text-danger"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="email">Correo (opcional)</label>
+              <input class="form-control" id="email" name="email" type="email" maxlength="100">
+              <div id="err-email" class="form-text text-danger"></div>
+              <div class="form-text">Permitidos: @duoc.cl, @profesor.duoc.cl, @gmail.com</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="mensaje">Comentario <span class="text-danger">*</span></label>
+              <textarea class="form-control" id="mensaje" name="mensaje" rows="5" maxlength="500" required></textarea>
+              <div class="d-flex justify-content-between">
+                <div id="err-msg" class="form-text text-danger"></div>
+                <div id="count-msg" class="char-left">0/500</div>
+              </div>
+            </div>
+            <div class="row g-2">
+              <div class="col-sm-6">
+                <label class="form-label" for="fecha">Fecha del evento</label>
+                <input class="form-control" id="fecha" name="fecha" type="date">
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="porciones">Porciones aprox.</label>
+                <input class="form-control" id="porciones" name="porciones" type="number" min="1" step="1">
+              </div>
+            </div>
+            <button class="btn btn-primary mt-3" type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="card p-4 h-100">
+          <h2 class="h5 mb-3">Datos de contacto</h2>
+          <ul class="list-unstyled">
+            <li>📍 Maipú, Santiago</li>
+            <li>📞 +56 9 1234 5678</li>
+            <li>📧 contacto@milsabores.cl</li>
+          </ul>
+          <hr>
+          <h3 class="h6">Horario</h3>
+          <p class="mb-0">Lunes a Sábado · 10:00 a 19:00</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-4 mt-5">
+    <div class="container text-center small text-muted">© 2025 Pastelería Mil Sabores · Maipú, Santiago</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

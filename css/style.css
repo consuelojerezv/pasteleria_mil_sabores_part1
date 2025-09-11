@@ -1,0 +1,89 @@
+/* ===== Paleta con variables y 4 temas ===== */
+:root{
+  --bg: #fff7f0;           /* fondo base */
+  --surface:#ffffff;       /* tarjetas/nav/footer */
+  --text:#3e2f27;          /* texto principal */
+  --muted:#6d4c41;         /* texto secundario */
+  --brand:#E76F51;         /* color de marca */
+  --brand-contrast:#ffffff;
+  --border:#eaded6;
+  --shadow:0 8px 24px rgba(0,0,0,.04);
+}
+
+/* Temas (elige uno poniéndolo en <body class="theme-...">) */
+.theme-frutilla{
+  --bg:#fff0f3;
+  --surface:#ffffff;
+  --brand:#e85d75;
+  --muted:#7a3b4a;
+}
+.theme-menta{
+  --bg:#eefcf6;
+  --surface:#ffffff;
+  --brand:#2bbd7e;
+  --muted:#2f6b56;
+}
+.theme-lavanda{
+  --bg:#f6f2ff;
+  --surface:#ffffff;
+  --brand:#7a5af8;
+  --muted:#514677;
+}
+.theme-caramelo{
+  --bg:#fff6e6;
+  --surface:#ffffff;
+  --brand:#d19a66;
+  --muted:#7b4d2a;
+}
+
+/* ===== Estilos globales usando variables ===== */
+body{ background:var(--bg); color:var(--text); }
+.lead{ color:var(--muted); }
+.hero-title{ color:var(--text); }
+
+.navbar{ background:var(--surface) !important; border-bottom:1px solid var(--border); }
+.navbar .nav-link.active{ font-weight:700; color:var(--brand) !important; }
+
+.card{ border-radius:14px; border:1px solid var(--border); background:var(--surface); box-shadow:var(--shadow); }
+.tag{
+  background:color-mix(in srgb, var(--brand) 15%, white);
+  color:var(--muted);
+  border-radius:999px; padding:.15rem .6rem; font-weight:700; font-size:.8rem;
+}
+
+a, .link-primary{ color:var(--brand); }
+a:hover{ opacity:.9; }
+
+/* Botones */
+.btn-primary{ background:var(--brand); border-color:var(--brand); color:var(--brand-contrast); }
+.btn-primary:hover{ filter:brightness(.95); }
+.btn-outline-primary{ color:var(--brand); border-color:var(--brand); }
+.btn-outline-primary:hover{ color:#fff; background:var(--brand); border-color:var(--brand); }
+
+/* Imágenes de posts */
+.post-img{
+  width:100%; aspect-ratio:16/9; object-fit:cover;
+  border-radius:12px; border:1px solid var(--border);
+}
+.post-img-lg{
+  width:100%; max-height:380px; object-fit:cover;
+  border-radius:14px; border:1px solid var(--border);
+}
+
+/* Footer */
+footer{ background:var(--surface); border-top:1px solid var(--border); }
+.like-btn{ min-width:100px; }
+/* ===== FIX: aplicar Menta global y forzar fondo ===== */
+:root{
+  --bg:#eefcf6;          /* fondo general verdoso */
+  --surface:#ffffff;      /* tarjetas, navbar, footer */
+  --text:#3e2f27;         
+  --muted:#2f6b56;        
+  --brand:#2bbd7e;        
+  --brand-contrast:#ffffff;
+  --border:#dfe9e3;       
+  --shadow:0 8px 24px rgba(0,0,0,.04);
+}
+
+/* Fuerza a que el body tome el color nuevo, por si hay reglas anteriores */
+html, body { background: var(--bg) !important; }

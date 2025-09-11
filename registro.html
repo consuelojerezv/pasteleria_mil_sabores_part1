@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registro — Pastelería Mil Sabores</title>
+<link rel="stylesheet" href="css/style.css">
+<script type="module" src="js/script.js"></script>
+</head><body>
+<header>
+  <div class="navwrap">
+    <div class="logo"><img src="img/logo.svg" alt="logo"><span>Pastelería Mil Sabores</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="productos.html">Productos</a>
+      <a href="registro.html">Registro</a>
+      <a href="login.html">Iniciar sesión</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="blog.html">Blogs</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="cart">🛒 <span class="cart-count">0</span></div>
+  </div>
+</header>
+<main>
+<div class="toast" role="status" aria-live="polite"></div>
+
+<h1>Registro de usuario</h1>
+<form onsubmit="import('/mnt/data/pasteleria-mil-sabores/js/script.js').then(m=>m.handleRegistroSubmit(event))">
+  <div class="input">
+    <label for="nombre">Nombre</label>
+    <input id="nombre" name="nombre" required />
+    <div id="err-nombre" class="error"></div>
+  </div>
+  <div class="input">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required />
+    <div id="err-email" class="error"></div>
+  </div>
+  <div class="input">
+    <label for="password">Contraseña</label>
+    <input id="password" name="password" type="password" minlength="6" required />
+    <div id="err-pass" class="error"></div>
+  </div>
+  <div class="input">
+    <label for="confirm">Confirmar contraseña</label>
+    <input id="confirm" name="confirm" type="password" minlength="6" required />
+    <div id="err-confirm" class="error"></div>
+  </div>
+  <button class="btn" type="submit">Crear cuenta</button>
+</form>
+</main>
+<footer>© 2025 Pastelería Mil Sabores — Maipú, Santiago</footer>
+</body></html>
