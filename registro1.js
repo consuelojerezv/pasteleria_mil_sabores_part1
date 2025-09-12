@@ -1,12 +1,12 @@
-// ======================
-// VALIDACIÓN FORMULARIO
-// ======================
+
+// VALIDACIÓN 
+
 document.getElementById("registro").addEventListener("submit", function(e) {
   e.preventDefault();
 
   let valido = true;
 
-  // Validación nombre
+  //  nombre
   const nombre = document.getElementById("nombre").value.trim();
   if (nombre === "" || !/^[a-zA-Z\s]+$/.test(nombre)) {
     document.getElementById("errorNombre").innerText = "Ingrese un nombre válido (solo letras y espacios).";
@@ -15,7 +15,7 @@ document.getElementById("registro").addEventListener("submit", function(e) {
     document.getElementById("errorNombre").innerText = "";
   }
 
-  // Validación correo (@duoc.cl, @gmail.cl, @gmail.com)
+  // correo
   const correo = document.getElementById("correo").value.trim();
   if (!/^[\w.%+-]+@(duoc\.cl|gmail\.cl|gmail\.com)$/.test(correo)) {
     document.getElementById("errorCorreo").innerText =
@@ -25,7 +25,7 @@ document.getElementById("registro").addEventListener("submit", function(e) {
     document.getElementById("errorCorreo").innerText = "";
   }
 
-  // Validación contraseña
+  // contraseña
   const password = document.getElementById("password").value;
   const regexPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%]).{8,}$/;
   if (!regexPass.test(password)) {
@@ -45,7 +45,7 @@ document.getElementById("registro").addEventListener("submit", function(e) {
     document.getElementById("errorConfirmPassword").innerText = "";
   }
 
-  // Teléfono opcional
+  // Teléfono 
   const telefono = document.getElementById("telefono").value;
   if (telefono !== "" && !/^\d{9}$/.test(telefono)) {
     document.getElementById("errorTelefono").innerText = "Ingrese un teléfono válido de 9 dígitos.";
@@ -63,30 +63,30 @@ document.getElementById("registro").addEventListener("submit", function(e) {
     document.getElementById("errorDireccion").innerText = "";
   }
 
-  // Validar selección de región
+  //región
   const region = document.getElementById("region").value;
   if (region === "") {
     alert("Debe seleccionar una región.");
     valido = false;
   }
 
-  // Validar selección de comuna
+  // comuna
   const comuna = document.getElementById("comuna").value;
   if (comuna === "") {
     alert("Debe seleccionar una comuna.");
     valido = false;
   }
 
-  // Enviar si todo es válido
+  
   if (valido) {
     alert("Registro exitoso ✅");
     this.reset();
   }
 });
 
-// ======================
+
 // REGIONES Y COMUNAS
-// ======================
+
 const comunasPorRegion = {
   Metropolitana: ["Santiago", "Puente Alto", "Ñuñoa"],
   Biobio: ["Concepción", "Talcahuano", "Chiguayante"],

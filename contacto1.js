@@ -1,4 +1,4 @@
-// Esperar a que el DOM cargue
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
   const nombre = document.getElementById("nombre");
@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const mensaje = document.getElementById("mensaje");
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Evita que se envíe sin validar
+    e.preventDefault(); 
 
-    // Validaciones
+    
     if (nombre.value.trim() === "") {
       alert("Por favor ingresa tu nombre completo.");
       nombre.focus();
@@ -27,12 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Si todo está bien
+    
     alert("¡Gracias por contactarnos! Pronto te responderemos.");
     form.reset();
   });
 
-  // Función para validar correo
+  
   function validarCorreo(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);

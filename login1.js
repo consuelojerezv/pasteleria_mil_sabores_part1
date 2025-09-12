@@ -6,7 +6,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
   const correo = document.getElementById("loginCorreo").value.trim();
   const password = document.getElementById("loginPassword").value;
 
-  // Validación correo (@duoc.cl, @gmail.cl, @gmail.com)
+  // Validación correo
   if (!/^[\w.%+-]+@(duoc\.cl|gmail\.cl|gmail\.com)$/.test(correo)) {
     document.getElementById("errorLoginCorreo").innerText =
       "Ingrese un correo válido con dominio @duoc.cl, @gmail.cl o @gmail.com.";
@@ -23,7 +23,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
     document.getElementById("errorLoginPassword").innerText = "";
   }
 
-  // Redirigir si todo es válido
+  
   if (valido) {
     window.location.href = "productos.html"; // ventana de productos
   }
