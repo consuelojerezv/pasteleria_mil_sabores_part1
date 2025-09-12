@@ -1,47 +1,37 @@
-// Llamar a esta función cuando el usuario haga clic en un botón, por ejemplo:
-document.querySelector('#limpiar-carrito-btn')?.addEventListener('click', limpiarCarrito);
+// Helpers
+const fmtCLP = (n) => new Intl.NumberFormat("es-CL").format(n);
+const getCart = () => JSON.parse(localStorage.getItem("carrito")) || [];
+const setCart = (c) => localStorage.setItem("carrito", JSON.stringify(c));
+const actualizarBadge = () => {
+  const badge = document.getElementById("badge-carrito");
+  if (!badge) return;
+  const unidades = getCart().reduce((n, it) => n + it.cantidad, 0);
+  badge.textContent = unidades;
+};
 
-// Función para añadir productos al carrito desde la página de detalles
 function añadirAlCarritoDesdeDetalle() {
-  // Obtener los datos del producto desde el botón "Añadir al carrito"
-  const botonAgregar = document.querySelector('.add-to-cart-btn');
-  const idProducto = botonAgregar.getAttribute('data-id');
-  const nombre = botonAgregar.getAttribute('data-nombre');
-  const precio = parseFloat(botonAgregar.getAttribute('data-precio'));
+  const botonAgregar = document.querySelector(".add-to-cart-btn");
+  if (!botonAgregar) return;
 
-  // Obtener la cantidad seleccionada por el usuario
-  const cantidadInput = document.getElementById('cantidad');
-  const cantidad = parseInt(cantidadInput.value, 10);
+  const id = botonAgregar.dataset.id;
+  const nombre = botonAgregar.dataset.nombre;
+  const precio = Number(botonAgregar.dataset.precio || 0);
+  const cantidad = Math.max(1, parseInt(document.getElementById("cantidad")?.value || "1", 10));
 
-  // Obtener el carrito desde localStorage o crear uno vacío
-  const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+  const carrito = getCart();
+  const existente = carrito.find((i) => i.id_producto === id);
+  if (existente) existente.cantidad += cantidad;
+  else carrito.push({ id_producto: id, nombre, precio, cantidad });
 
-  // Verificar si el producto ya está en el carrito
-  const productoExistente = carrito.find(item => item.id_producto === idProducto);
-
-  if (productoExistente) {
-    // Si ya está en el carrito, aumentar la cantidad
-    productoExistente.cantidad += cantidad;
-  } else {
-    // Si no está, agregarlo al carrito con la cantidad seleccionada
-    carrito.push({ id_producto: idProducto, nombre, precio, cantidad });
-  }
-
-  // Guardar el carrito actualizado en localStorage
-  localStorage.setItem('carrito', JSON.stringify(carrito));
-
-  // Mostrar un mensaje de confirmación
-  alert(`Se han agregado ${cantidad} ${nombre} al carrito.`);
-  console.log(`Producto añadido: ${nombre} - Cantidad: ${cantidad}`);
+  setCart(carrito);
+  actualizarBadge();
+  alert(`Se agregaron ${cantidad} “${nombre}”. Total carrito: $${fmtCLP(
+    carrito.reduce((t, it) => t + it.precio * it.cantidad, 0)
+  )}`);
 }
 
-// Escuchar el clic en el botón "Añadir al carrito"
-document.addEventListener('DOMContentLoaded', () => {
-  const botonAgregar = document.querySelector('.add-to-cart-btn');
-  if (botonAgregar) {
-    botonAgregar.addEventListener('click', añadirAlCarritoDesdeDetalle);
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  const boton = document.querySelector(".add-to-cart-btn");
+  if (boton) boton.addEventListener("click", añadirAlCarritoDesdeDetalle);
+  actualizarBadge();
 });
-
-// Nota: No es necesario actualizar visualmente el carrito aquí, ya que el usuario
-// se redirigirá al carrito para ver los productos.
