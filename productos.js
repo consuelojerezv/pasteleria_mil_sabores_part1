@@ -10,17 +10,17 @@ function añadirAlCarrito(idProducto, nombre, precio) {
         // aumentar la cantidad
         productoExistente.cantidad++;
     } else {
-        // Si no está, agregarlo al carrito
+        // agregarlo al carrito
         carrito.push({ id_producto: idProducto, nombre, precio, cantidad: 1 });
     }
 
-    // Guardar el carrito actualizado en localStorage
+    // Guardar el carrito
     localStorage.setItem('carrito', JSON.stringify(carrito));
 
-    // Mostrar el total en la consola (opcional, puedes actualizar la vista en la página)
+    // Mostrar el total en la consola
     console.log(`Producto añadido: ${nombre} - Total carrito: $${carrito.reduce((total, item) => total + item.precio * item.cantidad, 0).toFixed(2)} CLP`);
 
-    // Llamada para actualizar el carrito visualmente en la página
+    // actualizar el carrito
     actualizarCarrito();
 }
 
@@ -28,9 +28,9 @@ function actualizarCarrito() {
     const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const total = carrito.reduce((total, item) => total + item.precio * item.cantidad, 0);
 
-    // Mostrar el total del carrito en la consola o actualizar alguna parte visualmente de la página
+    // Mostrar el total del carrito
     console.log(`Total del carrito: $${total.toFixed(2)} CLP`);
 }
 
-// Cargar el carrito al cargar la página
+
 window.onload = actualizarCarrito;

@@ -101,10 +101,10 @@ if (regionSelect && comunaSelect) {
   regionSelect.addEventListener("change", function () {
     const regionSeleccionada = this.value;
 
-    // Resetear las opciones del select de comuna
+    
     comunaSelect.innerHTML = '<option value="" disabled selected>Seleccione</option>';
 
-    // Si la región tiene comunas, agregarlas
+    
     if (comunasPorRegion[regionSeleccionada]) {
       comunasPorRegion[regionSeleccionada].forEach(comuna => {
         const option = document.createElement("option");
