@@ -4,7 +4,7 @@ html, body {
 
 
 /* ! Estilos de la vista Productos */
-/* Reset de márgenes y rellenos para todos los elementos */
+
 * {
     margin: 0;
     padding: 0;
@@ -16,16 +16,16 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    font-family: 'Lato', sans-serif; /* Fuente principal */
-    background-color: #ecb151; /* Fondo crema pastel */
-    color: #5D4037; /* Color marrón oscuro para el texto */
+    font-family: 'Lato', sans-serif; 
+    background-color: #ecb151; 
+    color: #5D4037;
     height: 100%;
 }
 
 /* Estilo del título PRODUCTOS */
 #titulo-productos {
     text-align: center;
-    font-family: 'Pacifico', cursive; /* Fuente cursiva para el título */
+    font-family: 'Pacifico', cursive; 
     font-size: 48px;
     margin-top: 40px;
 }
@@ -45,7 +45,7 @@ html, body {
 /* Cuadrícula de productos */
 #cuadricula-productos {
     display: grid; 
-    grid-template-columns: repeat(4, 1fr); /* 4 columnas de 1 fracción */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 20px;   
     padding: 20px;
 }
@@ -69,7 +69,7 @@ html, body {
 .tarjeta-producto img {
     width: 90%;
     height: 200px;
-    object-fit: cover; /* para que la imagen cubra toda el área */
+    object-fit: cover; 
     border-radius: 10px;
     cursor: pointer; 
     transition: transform 0.3s ease;
@@ -93,25 +93,25 @@ html, body {
 
 /* Para los botones */
 .boton-carrito {
-    background-color: #FFC0CB;  /* Color rosado */
+    background-color: #FFC0CB;  
     border: none;
     color: rgb(0, 0, 0);
     padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
     border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s ease; /* Transición de color y escala */
+    transition: background-color 0.3s, transform 0.3s ease; 
 }
 
 /* Efecto hover en el botón */
 .boton-carrito:hover {
-    background-color: #8B4513; /* Color marrón oscuro */
-    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+    background-color: #8B4513; 
+    transform: scale(1.05); 
 }
 
 
 
-    /* ! Estilo de la pagina de Detalle Producto */
+    /* ! Estilo Detalle Producto */
 
 /* Estilo básico para el cuerpo */
 #cuerpo-producto {
@@ -124,14 +124,14 @@ html, body {
 /* Contenedor de los detalles del producto */
 #contenedor-detalle-producto {
     display: grid;
-    grid-template-columns: 1fr 1fr;  /* Dos columnas iguales */
-    gap: 20px;  /* Espacio entre las columnas */
+    grid-template-columns: 1fr 1fr;  
+    gap: 20px; 
     padding: 20px;
     margin: 20px auto;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 850px;  /* Limita el ancho máximo del contenedor */
+    max-width: 850px; 
 }
 
 /* Imágenes del producto */
@@ -280,7 +280,7 @@ html, body {
 /* Cuadrícula para los productos (en fila horizontal) */
 #productos-carrito {
     display: flex;
-    flex-direction: column; /* Cambiar a columna para que los productos se apilen verticalmente */
+    flex-direction: column;
     gap: 20px;
     margin-bottom: 30px;
 }
@@ -291,7 +291,7 @@ html, body {
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border: 1px solid #ddd; /* Agregar borde estilo cuadrícula */
+    border: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -336,7 +336,7 @@ html, body {
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     margin-top: 20px;
-    border: 1px solid #ddd;  /* Agregar borde */
+    border: 1px solid #ddd;  
 }
 
 /* Botón de pago */
@@ -364,8 +364,8 @@ html, body {
 /* Logo a la derecha del body */
 .logo-derecha {
     position: absolute;
-    right: 300px; /* Espacio desde el borde derecho */
-    top: 250px;   /* Espacio desde el borde superior */
+    right: 300px; 
+    top: 250px;   
     max-width: 500px;
     height: auto;
 }
@@ -403,7 +403,7 @@ body { font-family: 'Lato', sans-serif;
 /* Logo */
 #logo {
   border-radius: 50%;
-  border: 3px solid #FFC0CB; /* Marco rosa suave */
+  border: 3px solid #FFC0CB; 
 }
 
 /* Sección de productos */
@@ -414,7 +414,7 @@ section {
 section h2 {
   font-family: 'Pacifico', cursive;
   font-size: 2rem;
-  color: #8B4513; /* Chocolate */
+  color: #8B4513; 
   margin-bottom: 30px;
 }
 
@@ -428,7 +428,7 @@ section h2 {
 
 /* Contenedor del producto */
 .producto {
-  background-color: #ffffff; /* Contenedor blanco */
+  background-color: #ffffff; 
   border-radius: 15px;
   padding: 15px;
   width: 220px;
@@ -442,8 +442,8 @@ section h2 {
 /* Imagen con ajuste correcto */
 .producto img {
   width: 100%;
-  height: 180px;           /* altura uniforme */
-  object-fit: cover;       /* recorta sin deformar */
+  height: 180px;           
+  object-fit: cover;       
   border-radius: 10px;
   margin-bottom: 10px;
   transition: transform 0.4s ease;
@@ -455,7 +455,7 @@ section h2 {
   box-shadow: 6px 6px 18px rgba(0,0,0,0.2);
 }
 .producto:hover img {
-  transform: scale(1.1); /* Zoom en la imagen */
+  transform: scale(1.1); 
 }
 
 .producto p {
@@ -468,7 +468,7 @@ section h2 {
 /* Estrellas de valoración */
 .estrellas {
   text-align: center;
-  color: #FFD700;   /* Dorado */
+  color: #FFD700;   
   font-size: 18px;
   margin-top: -5px;
   margin-bottom: 5px;
@@ -494,7 +494,7 @@ footer a:hover {
 
 /* Contenedor del logo y título */
 .registro-header {
-  text-align: center;  /* centra todo lo que esté dentro */
+  text-align: center; 
   margin: 30px 0;
 }
 
@@ -507,7 +507,7 @@ footer a:hover {
 
 /* Título */
 .registro-header h2 {
-  text-align: center;   /* centra el texto explícitamente */
+  text-align: center;   
   display: block;
   margin: 0 auto;
   font-family: 'Pacifico', cursive;
@@ -577,7 +577,7 @@ button:hover,
   transform: scale(1.05);
 }
 
-/* ---------------------- PÁGINA NOSOTROS ---------------------- */
+/* ---------------------- NOSOTROS ---------------------- */
 #body1 {
   margin: 0;
   font-family: 'Lato', sans-serif;
@@ -619,8 +619,6 @@ button:hover,
 .imagenes-nosotros img:hover { transform: scale(1.08); box-shadow: 0 12px 28px rgba(0,0,0,.25); }
 
 /* ---------------------- PÁGINA CONTACTO ---------------------- */
-/* Fondo general */
-/* Fondo general */
 #body2 {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, sans-serif;

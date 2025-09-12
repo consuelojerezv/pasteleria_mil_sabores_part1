@@ -1,3 +1,4 @@
+// Esperar a que el DOM cargue
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-contacto");
   const nombre = document.getElementById("nombre");
@@ -6,29 +7,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const dominiosOK = /(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let ok = true;
+    e.preventDefault(); // Evita que se envíe sin validar
 
-    // Nombre: requerido, máx 100
-    if (!nombre.value.trim() || nombre.value.length > 100) {
-      nombre.classList.add("is-invalid"); ok = false;
-    } else nombre.classList.remove("is-invalid");
+    // Validaciones
+    if (nombre.value.trim() === "") {
+      alert("Por favor ingresa tu nombre completo.");
+      nombre.focus();
+      return;
+    }
 
-    // Correo: formato, dominios y máx 100
-    const mail = correo.value.trim();
-    const formatoOK = /^[^\s@]+@[^\s@]+$/.test(mail);
-    if (!mail || mail.length > 100 || !formatoOK || !dominiosOK.test(mail)) {
-      correo.classList.add("is-invalid"); ok = false;
-    } else correo.classList.remove("is-invalid");
+    if (correo.value.trim() === "" || !validarCorreo(correo.value)) {
+      alert("Por favor ingresa un correo válido.");
+      correo.focus();
+      return;
+    }
 
-    // Mensaje: requerido, máx 500
-    if (!mensaje.value.trim() || mensaje.value.length > 500) {
-      mensaje.classList.add("is-invalid"); ok = false;
-    } else mensaje.classList.remove("is-invalid");
+    if (mensaje.value.trim() === "") {
+      alert("Por favor escribe tu mensaje.");
+      mensaje.focus();
+      return;
+    }
 
-    if (!ok) return;
-
+    // Si todo está bien
     alert("¡Gracias por contactarnos! Pronto te responderemos.");
     form.reset();
   });
+
+  // Función para validar correo
+  function validarCorreo(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
 });
