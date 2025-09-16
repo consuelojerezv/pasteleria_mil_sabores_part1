@@ -51,4 +51,4 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("limpiar-carrito-btn")?.addEventListener("click", limpiarCarrito);
   document.getElementById("boton-pago")?.addEventListener("click", () => alert("Simulación de pago ✅"));
   mostrarCarrito();
-});
+}); 
