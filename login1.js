@@ -8,25 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const errCorreo = document.getElementById('errorLoginCorreo');
   const errPass = document.getElementById('errorLoginPassword');
 
-<<<<<<< HEAD
   const dominiosPermitidos = ['duoc.cl', 'profesor.duoc.cl', 'gmail.com'];
-=======
-  // Validación correo
-  if (!/^[\w.%+-]+@(duoc\.cl|gmail\.cl|gmail\.com)$/.test(correo)) {
-    document.getElementById("errorLoginCorreo").innerText =
-      "Ingrese un correo válido con dominio @duoc.cl, @gmail.cl o @gmail.com.";
-    valido = false;
-  } else {
-    document.getElementById("errorLoginCorreo").innerText = "";
-  }
->>>>>>> b820a5ed16835eb1bad2e158fdc0f2048035aa13
 
   const clearErrors = () => {
     errCorreo.textContent = '';
     errPass.textContent = '';
   };
 
-<<<<<<< HEAD
   const correoValido = (value) => {
     if (!value) return false;
     if (value.length > 100) return false;
@@ -69,10 +57,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Puedes ajustar el destino si quieres ir a productos.html
     window.location.href = 'index1.html';
   });
-=======
-  
-  if (valido) {
-    window.location.href = "productos.html"; // ventana de productos
-  }
->>>>>>> b820a5ed16835eb1bad2e158fdc0f2048035aa13
 });

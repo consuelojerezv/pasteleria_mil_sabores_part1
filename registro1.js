@@ -1,17 +1,8 @@
-<<<<<<< HEAD
 // registro1.js
-=======
-
-// VALIDACIÓN 
-
-document.getElementById("registro").addEventListener("submit", function(e) {
-  e.preventDefault();
->>>>>>> b820a5ed16835eb1bad2e158fdc0f2048035aa13
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('registro');
 
-<<<<<<< HEAD
   // Inputs
   const nombreEl = document.getElementById('nombre');
   const correoEl = document.getElementById('correo');
@@ -56,37 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const clearErrors = () => {
     [eNombre, eCorreo, ePass, ePass2, eTel, eDir].forEach(el => el && (el.textContent = ''));
   };
-=======
-  //  nombre
-  const nombre = document.getElementById("nombre").value.trim();
-  if (nombre === "" || !/^[a-zA-Z\s]+$/.test(nombre)) {
-    document.getElementById("errorNombre").innerText = "Ingrese un nombre válido (solo letras y espacios).";
-    valido = false;
-  } else {
-    document.getElementById("errorNombre").innerText = "";
-  }
-
-  // correo
-  const correo = document.getElementById("correo").value.trim();
-  if (!/^[\w.%+-]+@(duoc\.cl|gmail\.cl|gmail\.com)$/.test(correo)) {
-    document.getElementById("errorCorreo").innerText =
-      "Ingrese un correo válido con dominio @duoc.cl, @gmail.cl o @gmail.com.";
-    valido = false;
-  } else {
-    document.getElementById("errorCorreo").innerText = "";
-  }
-
-  // contraseña
-  const password = document.getElementById("password").value;
-  const regexPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%]).{8,}$/;
-  if (!regexPass.test(password)) {
-    document.getElementById("errorPassword").innerText =
-      "La contraseña debe tener al menos 8 caracteres, incluir mayúscula, minúscula, número y un símbolo (@#$%).";
-    valido = false;
-  } else {
-    document.getElementById("errorPassword").innerText = "";
-  }
->>>>>>> b820a5ed16835eb1bad2e158fdc0f2048035aa13
 
   const correoValido = (value) => {
     if (!value || value.length > 100) return false;
@@ -95,22 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
     return dominiosPermitidos.includes(m[1]);
   };
 
-<<<<<<< HEAD
   const passValida = (value) => value && value.length >= 4 && value.length <= 10;
-=======
-  // Teléfono 
-  const telefono = document.getElementById("telefono").value;
-  if (telefono !== "" && !/^\d{9}$/.test(telefono)) {
-    document.getElementById("errorTelefono").innerText = "Ingrese un teléfono válido de 9 dígitos.";
-    valido = false;
-  } else {
-    document.getElementById("errorTelefono").innerText = "";
-  }
->>>>>>> b820a5ed16835eb1bad2e158fdc0f2048035aa13
 
   const telefonoValido = (value) => !value || /^\d{9}$/.test(value); // opcional, 9 dígitos si viene
 
-<<<<<<< HEAD
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     clearErrors();
@@ -129,57 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!nombre || nombre.length > 50) {
       eNombre.textContent = 'Nombre requerido (máx. 50 caracteres).';
       ok = false;
-=======
-  //región
-  const region = document.getElementById("region").value;
-  if (region === "") {
-    alert("Debe seleccionar una región.");
-    valido = false;
-  }
-
-  // comuna
-  const comuna = document.getElementById("comuna").value;
-  if (comuna === "") {
-    alert("Debe seleccionar una comuna.");
-    valido = false;
-  }
-
-  
-  if (valido) {
-    alert("Registro exitoso ✅");
-    this.reset();
-  }
-});
-
-
-// REGIONES Y COMUNAS
-
-const comunasPorRegion = {
-  Metropolitana: ["Santiago", "Puente Alto", "Ñuñoa"],
-  Biobio: ["Concepción", "Talcahuano", "Chiguayante"],
-  Araucania: ["Temuco", "Villarrica", "Padre Las Casas"],
-  Ñuble: ["Chillán", "San Carlos", "Bulnes"]
-};
-
-const regionSelect = document.getElementById("region");
-const comunaSelect = document.getElementById("comuna");
-
-if (regionSelect && comunaSelect) {
-  regionSelect.addEventListener("change", function () {
-    const regionSeleccionada = this.value;
-
-    
-    comunaSelect.innerHTML = '<option value="" disabled selected>Seleccione</option>';
-
-    
-    if (comunasPorRegion[regionSeleccionada]) {
-      comunasPorRegion[regionSeleccionada].forEach(comuna => {
-        const option = document.createElement("option");
-        option.value = comuna;
-        option.textContent = comuna;
-        comunaSelect.appendChild(option);
-      });
->>>>>>> b820a5ed16835eb1bad2e158fdc0f2048035aa13
     }
     if (!correoValido(correo)) {
       eCorreo.textContent = 'Correo inválido (usa @duoc.cl, @profesor.duoc.cl o @gmail.com, máx. 100 car.).';
